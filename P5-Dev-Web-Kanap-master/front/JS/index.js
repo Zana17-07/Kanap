@@ -21,7 +21,7 @@ fetch("http://localhost:3000/api/products")
     const a= document.createElement('a');
 
 /*Rechercher l'ID dans la page entière du DOM et ajouter l'élément enfant*/
-    document.querySelector("#items").appendChild(a);
+    document.getElementById('items').appendChild(a);
 
 /*Modifier les attributs*/
     a.setAttribute("href",`./product.html?id=${product._id}`)
@@ -45,5 +45,4 @@ fetch("http://localhost:3000/api/products")
   });
 
 }
-
 
