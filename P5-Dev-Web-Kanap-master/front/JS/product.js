@@ -21,10 +21,15 @@ fetch("http://localhost:3000/api/products/"+ address)
       return res.json();
     }})
 
-.then((data) => {
 /*détail de mon produit*/
+.then((data) => {
 
-    let product=(data);
+    /*définir la variable*/
+    const product=(data);
+
+        console.table(data);
+
+/*Modifier le DOM par les données données dans l'API*/
 
         document.querySelector('.item__img').innerHTML=
         `<img src="${product.imageUrl}" alt="${product.altTxt}"></img>`;
@@ -34,6 +39,24 @@ fetch("http://localhost:3000/api/products/"+ address)
 
         document.getElementById('description').innerHTML=
         `<p class="productDescription">${product.description}</p>`;
+
+        
+        document.getElementById('price').innerHTML=
+        `${product.price}`;
+
+    /*définir la variable*/
+    const i=0;
+    
+        document.getElementById('colors').innerHTML=
+
+/*créer une boucle. La variable i=0 donc si i est inférieur à la longueur du tableau des couleurs, alors on peut incrémenter +1(i++)
+Ajout des options de couleurs du produit demandé=
+<option value="vert">vert</option>
+<option value="blanc">blanc</option> */
+
+        `for(const i=0; i<${product.colors.length}; i++){
+        <option value="${product.colors}">${product.colors}</option>;
+        }`   
 
 })
 
