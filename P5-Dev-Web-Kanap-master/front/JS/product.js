@@ -40,24 +40,17 @@ fetch("http://localhost:3000/api/products/"+ address)
         document.getElementById('description').innerHTML=
         `<p class="productDescription">${product.description}</p>`;
 
-        
         document.getElementById('price').innerHTML=
         `${product.price}`;
 
-    /*définir la variable*/
-    const i=0;
-    
-        document.getElementById('colors').innerHTML=
-
-/*créer une boucle. La variable i=0 donc si i est inférieur à la longueur du tableau des couleurs, alors on peut incrémenter +1(i++)
-Ajout des options de couleurs du produit demandé=
+/*Ajout des options de couleurs du produit demandé=
 <option value="vert">vert</option>
 <option value="blanc">blanc</option> */
 
-        `for(const i=0; i<${product.colors.length}; i++){
-        <option value="${product.colors}">${product.colors}</option>;
-        }`   
-
+    let color = document.getElementById("colors");
+      for (i = 0; i < product.colors.length; i++) {
+        color.innerHTML+= `<option value="${product.colors[i]}">${product.colors[i]}</option>`;
+      }
 })
 
    
