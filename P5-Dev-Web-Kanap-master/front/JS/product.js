@@ -63,68 +63,86 @@ fetch("http://localhost:3000/api/products/"+ address)
 
 
 
-
-
+/****************************************************************** */
+/****************************************************************** */
 
 /*Ajouter un produit au panier*/
-
+/*let addToCart = document.getElementById("addToCart");
+    addToCart.addEventListener("click", addToCart => {
+        addToCart.innerHTML="Votre produit est bien ajouté au panier"
+        window.location.href = "./cart.html"
+});
 
 function addToCart(idproduct, color, quantity) {
 
+    console.log ("je suis là");
      
-        idproduct= `${product._id}`;
-        color = document.getElementById("colors").value;
-        quantity = document.getElementById("quantity").value;
+        
     
 
     /*1/ Aller récuperer le panier dans le local storage et le stocker dans un tableau (array) nommé cart*/
      
-        let cart= JSON.parse(localStorage.getItem("cart"));
-            localStorage.setItem("cart", JSON.stringify(cart));
-   /*
-    localStorage.setItem("cart");
-    let myCart= local.getItem('cart');
-    */ 
+        /*let cart= JSON.parse(localStorage.getItem("cart"));
+           
         console.log(cart);
 
     /*2/ Si le panier est vide, alors on ajoute le produit dans le tableau cart avec la quantité passée et la couleur choisie*/
-        if(cart == null){
+    /*    if(cart == null){
             if(quantity.value > 0 && quantity.value <=100 && quantity.value != 0 && color.value != 0){
-                addToCart.push(idproduct, color, quantity);
+                cart.push(idproduct, color, quantity);
             }
         };
 
     /*3/ Si le panier est non vide, alors*/
-        if(cart !=null){
+    /*    if(cart !=null){
 
 
             /*Il faut verifier si dans le tableau cart, le produit / couleur est déjà présent
                 Si le produit / couleur est déjà présent, on ajoute la quantité nouvelle*/
-            if (cart.find(idproduct && color)){ 
+    /*        if (cart.find(idproduct && color)){ 
                 if(quantity.value > 0 && quantity.value <=100 && quantity.value != 0 && color.value != 0){
-                addToCart.quantity++;
+                cart.quantity++;
                 }
             }
             
             /*Si le produit / couleur est absent, on ajoute le produit au tableau cart avec la couleur et la quantité*/           
-            else if (cart.find(idproduct && color) != undefined){
-                if(quantity.value > 0 && quantity.value <=100 && quantity.value != 0 && color.value != 0){
-                addToCart.push(idproduct, color, quantity);
+    /*        else if (cart.find(idproduct && color) != undefined){
+                if(quantity > 0 && quantity <=100 && quantity != 0 && color!= 0){
+                cart.push(idproduct, color, quantity);
                 }
             }    
         }
 
     /*4/ On sauvegarde le tableau cart dans le local storage*/
-    function saveCart(cart){
-        localStorage.setItem("cart", JSON.stringify(cart));
-    }
+    /*    localStorage.setItem("cart", JSON.stringify(cart));  
+}*/
 
-    let addToCart = document.getElementById("addToCart");
-    addToCart.addEventListener("click", addToCart => {
-        addToCart.innerHTML="Votre produit est bien ajouté au panier"
-        window.location.href = "./cart.html"
-    });
-}
+/**************************************************************** */
+/****************************************************************** */
+
+function addToCart (id, color, quantity) {
+     
+    console.log("je suis là");
+
+    let cart= JSON.parse(localStorage.getItem("cart"));
+    console.log (cart);
+
+    if(cart == null){
+        cart.push(id, color, quantity);
+        
+    }
+    else if(cart !=null){
+        /* balayer avec une boucle cart les customElements
+            Si idproduit = idproduit de cart et couleur = couleur de cart alors ajouter la quantité
+            sinon on ajout le produit cart.push(idproduct, color, quantity);*/
+        cart.quantity++
+    };
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+} 
+
+/***************************************************** */
+/******************************************************** */
 
 
 

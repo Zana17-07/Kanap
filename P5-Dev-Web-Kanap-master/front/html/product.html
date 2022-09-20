@@ -13,6 +13,7 @@
     <link href="../css/product.css" rel="stylesheet" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
   </head>
 
   <body>
@@ -66,8 +67,8 @@
                   <label for="color-select">Choisir une couleur :</label>
                   <select name="color-select" id="colors">
                       <option value="">--SVP, choisissez une couleur --</option>
-<!--                       <option value="vert">vert</option>
-                      <option value="blanc">blanc</option> -->
+<!--                      <option value="vert">vert</option>
+                          <option value="blanc">blanc</option> -->
                   </select>
                 </div>
 
@@ -78,8 +79,11 @@
               </div>
 
               <div class="item__content__addButton">
-                <button id="addToCart">Ajouter au panier</button>
+                  <form method="post">
+                  <button id="addToCart"onClick="addToCart(id=`data._id`, color=`data.colors`, quantity= document.getElementById("quantity"))">Ajouter au panier</button>
+                  </form>
               </div>
+              
 
             </div>
           </article>
