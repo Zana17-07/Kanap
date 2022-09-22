@@ -130,7 +130,7 @@ function addToCart (id, color, quantity) {
     let cart= JSON.parse(localStorage.getItem("cart"));
     console.log (cart);
 
-    if(cart == null){
+   /* if(cart == null){
         cart.push(id, color, quantity);
         
     }
@@ -138,10 +138,10 @@ function addToCart (id, color, quantity) {
         /* balayer avec une boucle cart les customElements
             Si idproduit = idproduit de cart et couleur = couleur de cart alors ajouter la quantité
             sinon on ajout le produit cart.push(idproduct, color, quantity);*/
-        cart.quantity++
+       /* cart.quantity++
     }else{
         cart.push(id, color, quantity);
-    };
+    };*/
 
     localStorage.setItem("cart", JSON.stringify(cart));
 } 
