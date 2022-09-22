@@ -120,8 +120,12 @@ function addToCart(idproduct, color, quantity) {
 /**************************************************************** */
 /****************************************************************** */
 
-function addToCart (id, color, quantity) {
-     
+let myProduct= function addToCart (id, color, quantity) {
+   
+    id= data._id,
+    color= data.colors.value,
+    quantity= document.getElementById("quantity").value;
+
     console.log("je suis là");
 
     let cart= JSON.parse(localStorage.getItem("cart"));
@@ -131,11 +135,13 @@ function addToCart (id, color, quantity) {
         cart.push(id, color, quantity);
         
     }
-    else if(cart !=null){
+    if(cart !=null){
         /* balayer avec une boucle cart les customElements
             Si idproduit = idproduit de cart et couleur = couleur de cart alors ajouter la quantité
             sinon on ajout le produit cart.push(idproduct, color, quantity);*/
         cart.quantity++
+    }else{
+        cart.push(id, color, quantity);
     };
 
     localStorage.setItem("cart", JSON.stringify(cart));
