@@ -43,6 +43,9 @@ fetch("http://localhost:3000/api/products/"+ address)
         document.getElementById('price').innerHTML=
         `${product.price}`;
 
+        document.getElementById('product_id').innerHTML.value=
+        `${product._id}`;
+
 /*Ajout des options de couleurs du produit demandé=
 <option value="vert">vert</option>
 <option value="blanc">blanc</option> */
@@ -120,12 +123,8 @@ function addToCart(idproduct, color, quantity) {
 /**************************************************************** */
 /****************************************************************** */
 
-let myProduct= function addToCart (id, color, quantity) {
+function addToCart (id, color, quantity) {
    
-    id= data._id,
-    color= data.colors.value,
-    quantity= document.getElementById("quantity").value;
-
     console.log("je suis là");
 
     let cart= JSON.parse(localStorage.getItem("cart"));
