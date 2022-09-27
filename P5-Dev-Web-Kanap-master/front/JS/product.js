@@ -123,7 +123,7 @@ function addToCart(idproduct, color, quantity) {
 /**************************************************************** */
 /****************************************************************** */
 
-function addToCart (id, color, quantity) {
+function addToCart (product_id, color, quantity) {
    
     console.log("je suis là");
 
@@ -131,7 +131,7 @@ function addToCart (id, color, quantity) {
     console.log (cart);
 
    /* if(cart == null){
-        cart.push(id, color, quantity);
+        cart.push(product_id, color, quantity);
         
     }
     if(cart !=null){
@@ -140,7 +140,7 @@ function addToCart (id, color, quantity) {
             sinon on ajout le produit cart.push(idproduct, color, quantity);*/
        /* cart.quantity++
     }else{
-        cart.push(id, color, quantity);
+        cart.push(product_id, color, quantity);
     };*/
 
     localStorage.setItem("cart", JSON.stringify(cart));
