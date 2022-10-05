@@ -43,7 +43,7 @@ fetch("http://localhost:3000/api/products/"+ address)
         document.getElementById('price').innerHTML=
         `${product.price}`;
 
-        document.getElementById('product_id').innerHTML.value=
+        document.getElementById('product_id').value=
         `${product._id}`;
 
 /*Ajout des options de couleurs du produit demandé=
@@ -63,65 +63,12 @@ fetch("http://localhost:3000/api/products/"+ address)
   });
 }
 
+/***************************************************************************************** */
+/***************************************************************************************** */
 
 
 
-/****************************************************************** */
-/****************************************************************** */
-
-/*Ajouter un produit au panier*/
-/*let addToCart = document.getElementById("addToCart");
-    addToCart.addEventListener("click", addToCart => {
-        addToCart.innerHTML="Votre produit est bien ajouté au panier"
-        window.location.href = "./cart.html"
-});
-
-function addToCart(idproduct, color, quantity) {
-
-    console.log ("je suis là");
-     
-        
-    
-
-    /*1/ Aller récuperer le panier dans le local storage et le stocker dans un tableau (array) nommé cart*/
-     
-        /*let cart= JSON.parse(localStorage.getItem("cart"));
-           
-        console.log(cart);
-
-    /*2/ Si le panier est vide, alors on ajoute le produit dans le tableau cart avec la quantité passée et la couleur choisie*/
-    /*    if(cart == null){
-            if(quantity.value > 0 && quantity.value <=100 && quantity.value != 0 && color.value != 0){
-                cart.push(idproduct, color, quantity);
-            }
-        };
-
-    /*3/ Si le panier est non vide, alors*/
-    /*    if(cart !=null){
-
-
-            /*Il faut verifier si dans le tableau cart, le produit / couleur est déjà présent
-                Si le produit / couleur est déjà présent, on ajoute la quantité nouvelle*/
-    /*        if (cart.find(idproduct && color)){ 
-                if(quantity.value > 0 && quantity.value <=100 && quantity.value != 0 && color.value != 0){
-                cart.quantity++;
-                }
-            }
-            
-            /*Si le produit / couleur est absent, on ajoute le produit au tableau cart avec la couleur et la quantité*/           
-    /*        else if (cart.find(idproduct && color) != undefined){
-                if(quantity > 0 && quantity <=100 && quantity != 0 && color!= 0){
-                cart.push(idproduct, color, quantity);
-                }
-            }    
-        }
-
-    /*4/ On sauvegarde le tableau cart dans le local storage*/
-    /*    localStorage.setItem("cart", JSON.stringify(cart));  
-}*/
-
-/**************************************************************** */
-/****************************************************************** */
+let quantity = document.getElementById("quantity").value;
 
 function addToCart (product_id, color, quantity) {
    
@@ -130,18 +77,24 @@ function addToCart (product_id, color, quantity) {
     let cart= JSON.parse(localStorage.getItem("cart"));
     console.log (cart);
 
-   /* if(cart == null){
+/*je crée un objet vide de type cart où j'ajoute id color et qty et je stingify mon objet*/
+   if(cart == null){
+        cart= []
         cart.push(product_id, color, quantity);
-        
+        localStorage.setItem("cart", JSON.stringify(cart))
+        window.location.href = "cart.html";
     }
+
     if(cart !=null){
         /* balayer avec une boucle cart les customElements
             Si idproduit = idproduit de cart et couleur = couleur de cart alors ajouter la quantité
             sinon on ajout le produit cart.push(idproduct, color, quantity);*/
-       /* cart.quantity++
-    }else{
-        cart.push(product_id, color, quantity);
-    };*/
+        for (product of cart) { 
+            if(product_id === cart.product_id && color.value === cart.color.value)
+                cart.quantity++
+            }}else{
+                cart.push(product_id, color, quantity);
+    };
 
     localStorage.setItem("cart", JSON.stringify(cart));
 } 

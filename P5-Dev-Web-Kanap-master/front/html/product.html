@@ -50,8 +50,9 @@
             <div class="item__img">
               <!-- <img src="../images/logo.png" alt="Photographie d'un canapé"> -->
             </div>
-            <div class="item__content" id="product_id" value="">
-
+            <div class="item__content">
+              <!-- ajouter un input hidden pour cacher l'id -->
+              <input id="product_id" name="product_id" type="hidden" value="${product._id}">
               <div class="item__content__titlePrice">
                 <h1 id="title"><!-- Nom du produit --></h1>
                 <p>Prix : <span id="price"><!-- 42 --></span>€</p>
