@@ -93,7 +93,8 @@ function addToCart (product_id, color, quantity) {
 
         for (product of cart) { 
             if(product_id === cart.product_id && color === cart.product.color)
-                cart.quantity = cart.quantity + quantity;
+                cart.quantity = cart.quantity + quantity
+                eltFind == true;
             }
 
             if (eltFind == false){
