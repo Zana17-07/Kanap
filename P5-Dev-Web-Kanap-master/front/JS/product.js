@@ -102,7 +102,7 @@ function addToCart (product_id, color, quantity) {
             }
 
     localStorage.setItem("cart", JSON.stringify(cart))
-    /*window.location.href = "cart.html"*/;
+    window.location.href = "cart.html";
 }}
 
 /******************************************************************************* */
