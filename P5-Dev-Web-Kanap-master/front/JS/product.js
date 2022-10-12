@@ -56,7 +56,6 @@ fetch("http://localhost:3000/api/products/"+ address)
       }
 })
 
-   
 //Trouver les erreurs
 .catch((err) => {
     console.error(err);
@@ -67,8 +66,9 @@ fetch("http://localhost:3000/api/products/"+ address)
 /***************************************************************************************** */
 
 
+let color = document.getElementById("colors").value;
+let quantity = parseInt(document.getElementById("quantity").value) && quantity.value >= 1 && quantity.value <=100;
 
-let quantity = document.getElementById("quantity").value;
 
 function addToCart (product_id, color, quantity) {
    
@@ -78,29 +78,32 @@ function addToCart (product_id, color, quantity) {
     console.log (cart);
 
 /*je crée un objet vide de type cart où j'ajoute id color et qty et je stingify mon objet*/
-   if(cart == null){
+    if(cart == null){
         cart= []
-        cart.push(product_id, color, quantity);
-        localStorage.setItem("cart", JSON.stringify(cart))
-        window.location.href = "cart.html";
+        cart.push(product_id, color, quantity);    
     }
 
     if(cart !=null){
         /* balayer avec une boucle cart les customElements
-            Si idproduit = idproduit de cart et couleur = couleur de cart alors ajouter la quantité
+            Si idproduit = idproduit de cart et couleur = couleur de cart alors ajouter la nouvelle quantité
             sinon on ajout le produit cart.push(idproduct, color, quantity);*/
+        
+        /*initialise elt find*/
+        eltFind = false;
+
         for (product of cart) { 
-            if(product_id === cart.product_id && color.value === cart.color.value)
-                cart.quantity++
-            }}else{
+            if(product_id === cart.product_id && color === cart.product.color)
+                cart.quantity = cart.quantity + quantity;
+            }
+
+            if (eltFind == false){
                 cart.push(product_id, color, quantity);
-    };
+            }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-} 
+    localStorage.setItem("cart", JSON.stringify(cart))
+    /*window.location.href = "cart.html"*/;
+}}
 
-/***************************************************** */
-/******************************************************** */
-
-
+/******************************************************************************* */
+/******************************************************************************* */
 
