@@ -92,6 +92,8 @@ function addToCart (product_id, color, quantity) {
         }else{
            return "Merci de bien vouloir choisir une couleur dans la liste";
         }
+
+        console.log("je suis là");
     
     /*2/ Récupérer les données dans le local storage et créer un array cart*/
         let cart= JSON.parse(localStorage.getItem("cart"));
